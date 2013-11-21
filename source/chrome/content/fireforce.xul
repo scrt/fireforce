@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+
+<!--///////////////////////////////////////////////////////////////////////
+// (C) SCRT - Information Security, 2011 - Author Manoé Zwahlen      //
+///////////////////////////////////////////////////////////////////////
+// This program is free software: you can redistribute it and/or     //
+// modify it under the terms of the GNU General Public License as    //
+// published by the Free Software Foundation, either version 3 of    //
+// the License, or (at your option) any later version.               //
+// This program is distributed in the hope that it will be useful,   //
+// but WITHOUT ANY WARRANTY; without even the implied warranty of    //
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the     //
+// GNU General Public License for more details.                      //
+// You should have received a copy of the GNU General Public License //
+// along with this program. If not, see http://www.gnu.org/licenses. //
+	///////////////////////////////////////////////////////////////////////-->
+
+<overlay id="fireforce" 
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" 
+	src="chrome://fireforce/content/fireforce_openFile.js" />
+	<script type="application/x-javascript" 
+	src="chrome://fireforce/content/fireforce_sendForm.js" />
+	<script type="application/x-javascript" 
+	src="chrome://fireforce/content/fireforce_login.js" />
+	<script type="application/x-javascript" 
+	src="chrome://fireforce/content/fireforce_form.js" />
+	<script type="application/x-javascript" 
+	src="chrome://fireforce/content/fireforce_generatePassword.js" />  
+	<script type="application/x-javascript" 
+	src="chrome://fireforce/content/fireforce_createDialog.js" />       
+	
+	<commandset>
+		<command id="makeDataDictionary" oncommand="makeData('dictionary');" />
+		<command id="makeDataa-z" oncommand="makeData('a-z', '26');" />
+		<command id="makeDataA-Z" oncommand="makeData('A-Z', '26');" />
+		<command id="makeData0-9" oncommand="makeData('0-9', '10');" />
+		<command id="makeDataa-zA-Z" oncommand="makeData('a-zA-Z', '52');" />
+		<command id="makeDataa-z0-9" oncommand="makeData('a-z0-9', '36');" />
+		<command id="makeDataA-Z0-9" oncommand="makeData('A-Z0-9', '36');" />
+		<command id="makeDataa-zA-Z0-9" oncommand="makeData('a-zA-Z0-9', '62');" />
+		<command id="makeDatarange" oncommand="makeData('range');" />
+	</commandset>
+	
+	<popup id="contentAreaContextMenu">
+		<menu id="fireforce-tools-context" label="Fireforce">
+			<menupopup>
+				<menu id="fireforce-tools-generate-context" label="Generate password">
+					<menupopup>
+					<menuitem label="a-z" command="makeDataa-z" />
+					<menuitem label="A-Z" command="makeDataA-Z" />
+					<menuitem label="0-9" command="makeData0-9" />
+					<menuitem label="a-zA-Z" command="makeDataa-zA-Z" />
+					<menuitem label="a-z0-9" command="makeDataa-z0-9" />
+					<menuitem label="A-Z0-9" command="makeDataA-Z0-9" />
+					<menuitem label="a-zA-Z0-9" command="makeDataa-zA-Z0-9" />
+					<menuitem label="range" command="makeDatarange" />
+					</menupopup>
+				</menu>
+				<menuitem label="Load dictionary" command="makeDataDictionary" />
+				<menuitem label="Help" oncommand="window.open('http://www.scrt.ch/en/attack/downloads/fireforce', 'helpwindow', '');" /> 
+			</menupopup>
+		</menu>
+	</popup>
+</overlay>

@@ -1,0 +1,5 @@
+administrator
+administrateur
+admin
+root
+su

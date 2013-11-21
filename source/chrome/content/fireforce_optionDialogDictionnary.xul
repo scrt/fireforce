@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<!--///////////////////////////////////////////////////////////////////////
+// (C) SCRT - Information Security, 2011 - Author Manoé Zwahlen      //
+///////////////////////////////////////////////////////////////////////
+// This program is free software: you can redistribute it and/or     //
+// modify it under the terms of the GNU General Public License as    //
+// published by the Free Software Foundation, either version 3 of    //
+// the License, or (at your option) any later version.               //
+// This program is distributed in the hope that it will be useful,   //
+// but WITHOUT ANY WARRANTY; without even the implied warranty of    //
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the     //
+// GNU General Public License for more details.                      //
+// You should have received a copy of the GNU General Public License //
+// along with this program. If not, see http://www.gnu.org/licenses. //
+	///////////////////////////////////////////////////////////////////////-->
+
+<!DOCTYPE dialog PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<dialog id="fireforceOptionDialog" title="Fireforce Preferences"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  buttons="accept,cancel"
+  buttonlabelcancel="Cancel"
+  buttonlabelaccept="Save"
+  ondialogaccept="return doOK();"
+  ondialogcancel="return doCancel();"
+  onload="onLoad();"
+  onunload="onUnLoad();">
+  
+  <script type="application/x-javascript;version=1.7"
+        src="chrome://fireforce/content/fireforce_optionDialogDictionnary.js" />
+      
+  <groupbox>
+	<label value="Enter the text that identifies the page."/>
+    <textbox id="text"/>
+	<label value="Choose whether the message appears after the authentication is successful or failed."/>
+	<radiogroup id="radio">
+		<radio label="Successful" value="success"/>
+		<radio label="Failed" value="failed" selected="true"/>
+	</radiogroup>
+  </groupbox>
+</dialog>
